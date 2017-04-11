@@ -54,3 +54,25 @@ function getMovies(){
 
 
 ?>
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>BlueBox</title>
+        <style>
+            @import url("css/styles.css");
+        </style>
+    </head>
+    <h1>BlueBox Movies</h1>
+    <body>
+        <form>
+            <!-- "searchMovieName is the name of the textBox that a user will
+            use to submit to be sql queried -->
+            <input type = "text" name = "searchMovieName">
+            <select>
+                <option>genre1</option>
+            </select>
+        </form>
+    </body>
+</html>
