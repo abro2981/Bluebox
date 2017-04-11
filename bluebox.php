@@ -48,31 +48,65 @@ function getMovies(){
 }
 
 
+<<<<<<< HEAD
+=======
+function getGenre($genreID){
+    global $conn;
+    $NameParam = array();
+    $NameParam[":genreId"] = $genreID;
+    $sql = "SELECT * FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE genreId = :genreId ";
+    $stmt = $conn -> prepare ($sql);
+    $stmt -> execute($NameParam);
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $records;
+}
+>>>>>>> a7bd5b5bf58f48e6028f2ea86ad6cda8ec5bef6b
 
 
+function getTitle($title){
+    global $conn;
+    $NameParam = array();
+    $NameParam[":title"] = '%'.$title.'%';
+    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE movieName LIKE :title";
+    $stmt = $conn -> prepare ($sql);
+    $stmt -> execute($NameParam);
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    return $records;
+}
 
 
 ?>
 
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+function getPrice(){
+    global $conn;
+    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY priceValue ASC";
+    $stmt = $conn -> prepare ($sql);
+    $stmt -> execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-<html>
-    <head>
-        <title>BlueBox</title>
-        <style>
-            @import url("css/styles.css");
-        </style>
-    </head>
-    <h1>BlueBox Movies</h1>
-    <body>
-        <form>
-            <!-- "searchMovieName is the name of the textBox that a user will
-            use to submit to be sql queried -->
-            <input type = "text" name = "searchMovieName">
-            <select>
-                <option>genre1</option>
-            </select>
-        </form>
-    </body>
-</html>
+    return $records;
+}
+
+//sort by either price, title, or genre
+//parameters ex. --> (price, asc)
+//param arg --> movieName, genreID, or priceValue
+//asc arg --> asc or desc
+function sortData($param, $sort){
+    global $conn;
+    $NameParam = array();
+    $NameParam[":param"] = $param;
+    $NameParam[":sort"] = $sort;
+    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY :param :sort";
+    $stmt = $conn -> prepare ($sql);
+    $stmt -> execute($NameParam);
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $records;
+}
+
+>>>>>>> a7bd5b5bf58f48e6028f2ea86ad6cda8ec5bef6b
