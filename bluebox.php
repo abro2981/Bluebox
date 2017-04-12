@@ -58,24 +58,29 @@ function getPrice(){
 //sort by either price, title, or genre
 //param arg --> movieName, genreID, or priceValue
 //asc arg --> asc or desc
+/***depreciated***/
 function sortData($param, $sort){
     global $conn;
+    $data = null;
     $NameParam = array();
-    $NameParam[":param"] = $param;
+    $NameParam[":param"] = $data;
     $NameParam[":sort"] = $sort;
     $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY :param :sort";
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute($NameParam);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
+   
     return $records;
 }
 
 
 //filter data from DB by tile, genre or price
-function returnData($title, $genre, $price){
+//sort by ASC or DESC 
+function returnData($title, $genre, $sortingType){
     global $conn;
     $NameParam = array();
+    
     $sql = "SELECT movieName, mediaType, priceValue, genreId, genreName FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
     if(!empty($title)){
         $NameParam[":title"] = '%'.$title.'%';
@@ -85,13 +90,22 @@ function returnData($title, $genre, $price){
         $NameParam[":genre"] = $genre;
         $sql .= "AND genreId = :genre ";
     }
-    if(!empty($genre) && empty($title) && $genre != "Filter A Genre" ){
+    if(!empty($genre) && empty($title) && $genre != "null" ){
         $NameParam[":genre"] = $genre;
         $sql .= "WHERE genreId = :genre ";
     }
-    if(!empty($price)){
-        $sql .= "ORDER BY priceValue ASC ";
+    if(!empty($sortingType)){
+        if($sortingType == "asc"){
+            $sql .= "ORDER BY movieName ASC";
+        }
+        else if($sortingType == "price"){
+            $sql .= "ORDER BY priceValue ";
+        }
+        else{
+            $sql .= "ORDER BY movieName DESC";
+        }
     }
+   
 
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute($NameParam);

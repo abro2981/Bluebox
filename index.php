@@ -24,18 +24,20 @@ function genreOptions(){
             use to submit to be sql queried -->
             <input type="text" name="searchMovieName">
             <select name="searchByGenre">
-                <option>Filter A Genre</option>
+                <option value="null">Filter A Genre</option>
                 <?=genreOptions()?>
             </select>
             
-            Filter by price<input type="checkbox" name="searchByPrice" /> 
+            <input type="radio" name="sort" value="price"/>Filter by price
+            <input type="radio" name="sort" value="asc" />Ascending Order
+            <input type="radio" name="sort" value="desc"/>Descending Order
             
             <input type="submit" name="Submit"/>
         </form>
         
         <?php
         if(isset($_GET['Submit'])){
-            $data = returnData($_GET['searchMovieName'], $_GET['searchByGenre'], $_GET['searchByPrice']);  
+            $data = returnData($_GET['searchMovieName'], $_GET['searchByGenre'], $_GET['sort']);  
             print_r($data);
             echo "<br/>";
             print_r($_GET);
