@@ -1,72 +1,38 @@
 <?php
-session_start();
 //get the database connection
-include '../../inc/dbConnection.php';
+include '../inc/dbConnection.php';
 //create db connection variable //check for global in functions!
 $conn = getDBConnection("bluebox");
 
-//function returns ALL movies at first like lab 5
-//then it will have a lot of condition statements liek $sql .= " AND blah"
 function getMovies(){
-    //selects ALL records to be shows in $sql statement that will be passed in
-    $sql = "SELECT * FROM bluebox WHERE 1";
-    
-    //condition checking for movie name to be searched in DB
-    if(isset($_GET['searcMovieName'])){
-        //will not prevent sql injection
-        //TODO
-        $sql .= " AND movieTitle = 'searchMovieName";
-    }
-    
-    if(isset($_GET['searchGenreName'])){
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    global $conn;
+    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
     //SQL statements
-    //prepares the statement we concocted above
-    $statement= $dbConn->prepare($sql);
-    //executes statement with knoledge of named parameters
-    $statement->execute($namedParameters);
-    //saves results to $records and fetches all the records
+    $statement= $conn->prepare($sql);
+    $statement->execute();
     $records = $statement->fetchALL(PDO::FETCH_ASSOC);
     
     //return/display the made sql statement
     return $records;
 }
 
-
-<<<<<<< HEAD
-=======
-function getGenre($genreID){
+// filter by genre
+function filterByGenre(){
     global $conn;
     $NameParam = array();
     $NameParam[":genreId"] = $genreID;
-    $sql = "SELECT * FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE genreId = :genreId ";
+    $sql = "SELECT genreId, genreName FROM genres";
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute($NameParam);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     return $records;
 }
->>>>>>> a7bd5b5bf58f48e6028f2ea86ad6cda8ec5bef6b
 
-
+//filter by title
+/***depreciated***/
 function getTitle($title){
-    global $conn;
-    $NameParam = array();
+    global $conn, $sql, $NameParam;
     $NameParam[":title"] = '%'.$title.'%';
     $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE movieName LIKE :title";
     $stmt = $conn -> prepare ($sql);
@@ -77,11 +43,8 @@ function getTitle($title){
 }
 
 
-?>
-
-<<<<<<< HEAD
-<!DOCTYPE html>
-=======
+//sort by price
+/***depreciated***/
 function getPrice(){
     global $conn;
     $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY priceValue ASC";
@@ -93,7 +56,6 @@ function getPrice(){
 }
 
 //sort by either price, title, or genre
-//parameters ex. --> (price, asc)
 //param arg --> movieName, genreID, or priceValue
 //asc arg --> asc or desc
 function sortData($param, $sort){
@@ -109,4 +71,34 @@ function sortData($param, $sort){
     return $records;
 }
 
->>>>>>> a7bd5b5bf58f48e6028f2ea86ad6cda8ec5bef6b
+
+//filter data from DB by tile, genre or price
+function returnData($title, $genre, $price){
+    global $conn;
+    $NameParam = array();
+    $sql = "SELECT movieName, mediaType, priceValue, genreId, genreName FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
+    if(!empty($title)){
+        $NameParam[":title"] = '%'.$title.'%';
+        $sql .= "WHERE movieName LIKE :title ";
+    }
+    if(!empty($genre) && !empty($title)){
+        $NameParam[":genre"] = $genre;
+        $sql .= "AND genreId = :genre ";
+    }
+    if(!empty($genre) && empty($title) && $genre != "Filter A Genre" ){
+        $NameParam[":genre"] = $genre;
+        $sql .= "WHERE genreId = :genre ";
+    }
+    if(!empty($price)){
+        $sql .= "ORDER BY priceValue ASC ";
+    }
+
+    $stmt = $conn -> prepare ($sql);
+    $stmt -> execute($NameParam);
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $records;
+    
+}
+
+?>
