@@ -10,14 +10,14 @@ function genreOptions(){
 }
 
 //display bootstrap cardview
-function displayCards($title, $movieType){
+function displayCards($title, $movieType,$imdbLink){
     //echo"<div class='row'> ";
     //echo    "<div class='col-sm-6'>";
     echo       "<div class='card' style='width: 20rem;'>";
     echo            "<div class='card-block'>";
     echo                "<h3 class='card-title'>$title</h3>";
     echo               "<p class='card-text'>$movieType</p>";
-    echo               "<a href='#' class='btn btn-primary'>Go somewhere</a>";
+    echo               "<a href='$imdbLink' class='btn btn-primary'>Go somewhere</a>";
     echo            "</div>";
     echo        "</div>";
     //echo    "</div>";
@@ -37,7 +37,9 @@ function displayCards($title, $movieType){
 
     </head>
     <h1>BlueBox Movies</h1>
+    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
     <body>
+        <div>
         <form>
             <!-- "searchMovieName is the name of the textBox that a user will
             use to submit to be sql queried -->
@@ -50,17 +52,22 @@ function displayCards($title, $movieType){
             <input type="radio" name="sort" value="price"/>Filter by price
             <input type="radio" name="sort" value="asc" />Ascending Order
             <input type="radio" name="sort" value="desc"/>Descending Order
-            
+            <br/>
             <input type="submit" name="Submit"/>
         </form>
-        
+        <!--Titles-->
+        <h1>All Movie Titles</h1>
+        </div>
         <?php
+        $imdb = array();
+        $imdb[] = "Movie1";
         if(isset($_GET['Submit'])){
             $data = returnData($_GET['searchMovieName'], $_GET['searchByGenre'], $_GET['sort']);  
             //print_r($data);
             //echo "<br/>";
             //print_r($_GET);
             echo "<div class='card-deck'>";
+            //displaying all movies as cards similar to previous lab
             foreach($data as $foo){
                 displayCards($foo['movieName'], $foo['mediaType']);
             }
@@ -72,11 +79,14 @@ function displayCards($title, $movieType){
             //echo "<br/>";
             //echo count($data);
             echo "<div class='card-deck'>";
+            echo "<table>";
+            $i = 0;
             foreach($data as $foo){
-                displayCards($foo['movieName'], $foo['mediaType']);
+                displayCards($foo['movieName'], $foo['mediaType'],$imdb[$i]);
+                $i++;
             }
             echo "</div>";
-      
+            echo "</table>";
         }
         
         ?>

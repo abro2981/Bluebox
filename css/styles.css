@@ -1,0 +1,18 @@
+div{
+    text-align: center;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+body{
+    background-color: gray;
+}
+
+nav a{
+    float: left;
+    border-color: black;
+    border-right-color: black;
+}

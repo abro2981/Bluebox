@@ -6,7 +6,7 @@ $conn = getDBConnection("bluebox");
 
 function getMovies(){
     global $conn;
-    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
+    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY movieName";
     //SQL statements
     $statement= $conn->prepare($sql);
     $statement->execute();
