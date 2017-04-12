@@ -86,11 +86,11 @@ function returnData($title, $genre, $sortingType){
         $NameParam[":title"] = '%'.$title.'%';
         $sql .= "WHERE movieName LIKE :title ";
     }
-    if(!empty($genre) && !empty($title)){
+    if($genre != "Filter A Genre" && !empty($title)){
         $NameParam[":genre"] = $genre;
         $sql .= "AND genreId = :genre ";
     }
-    if(!empty($genre) && empty($title) && $genre != "null" ){
+    if(empty($title) && $genre != "Filter A Genre"){
         $NameParam[":genre"] = $genre;
         $sql .= "WHERE genreId = :genre ";
     }
