@@ -1,6 +1,6 @@
 <?php
 //get the database connection
-include '../inc/dbConnection.php';
+include '../../../../inc/dbConnection.php';
 //create db connection variable //check for global in functions!
 $conn = getDBConnection("bluebox");
 
