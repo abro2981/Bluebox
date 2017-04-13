@@ -32,10 +32,14 @@ $title = getTitle($_GET["movieId"]);
 <html>
     <head>
         <title>Movie info</title>
+        <style>
+            @import url("css/styles.css");
+        </style>
     </head>
+    <div>
     <body>
 
-        <h2> Movie Name</h2>
+        
         
         <?php
         
@@ -53,35 +57,14 @@ $title = getTitle($_GET["movieId"]);
                 echo "<br/>";
                 echo "Price: ";print_r($foo['priceValue']);
             }
-            //echo $title['movieName'];
-            
-            //foreach ($users as $user) {
-                //show movie info
-                //echo "check";
-                //echo "<a href='movieInfo.php?movieId=".$users['movieId']."' >" . $user['movieName'] . "</a> ";
-                //echo "<a href='' onclick='window.open(\"userInfo.php?userId=".$user['userId']." \", \"userWindow\", \"width=200, height=200\" )'>" . $user['lastName'] . " </a> ";
-                //echo $user['email'];
-               // echo "<a href='userUpdate.php?userId=".$user['userId']."'>[Update]</a> ";
-               
-               //echo "<a href='userUpdate.php?userId=".$user['userId']."'>
-               //      <button type=\"button\" class=\"btn btn-default btn-lg\">
-               //      <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span> Update
-               //      </button></a>";
-               
-               //echo "<a onclick=confirmDelete()  href='deleteUser.php?userId=".$user['userId']."'>
-               //      <button type=\"button\" class=\"btn btn-danger btn-lg\">
-               //      <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span> Delete
-               //      </button></a>";               
-               
-                // echo "<form action='deleteUser.php' onSubmit='return confirmDelete(\"".$user['firstName']."\")'>\n";
-                // echo "  <input type='hidden' name='userId' value='".$user['userId']."'>\n";                
-                // echo "  <input type='submit' value='Delete'>\n";
-                // echo "</form>\n";
-                //echo "<br />";
-                
-            //}
+           
         
 
         ?>
+        <br/>
+        <footer>
+            <a href = "index.php">Return to home</a>
+        </footer>
     </body>
+    </div>
 </html>
