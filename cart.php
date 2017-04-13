@@ -29,19 +29,26 @@ if(isset ($_GET['empty'])){
             @import url("css/styles.css");
             
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
-        <h1>Your Shopping Cart</h1>
-        <nav><a href = "index.php">Home Page</a><br/></nav>
-    <body>
         
-        <br/>
-        <br/>
-        <form>
-            <input type = 'submit' name = 'empty' value = 'Empty Cart'>
+    <body>
+        <div class="jumbotron">
+            <h1>BlueBox Movies</h1>
+            <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
             
-        </form>
-        <br/>
-        <br/>
+        </div>
+        
+           
+        <div id = "emptyCart"> 
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container" id = "emptyCart">
+                <form>
+                    <input type = 'submit' id = "emptyCartButton" name = 'empty' value = 'Empty Cart'>
+                </form>
+            </div>
+        </nav>
+        </div>   
         
         <?php
         

@@ -43,7 +43,7 @@ function displayCards($title, $movieType, $movieId){
 
 
     <body>
-        <div class="jumbotron">
+        <div class="jumbotron" style = "margin-left:auto;margin-right:auto">
             <h1>BlueBox Movies</h1>
             <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
         </div>
