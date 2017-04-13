@@ -55,20 +55,21 @@ a{
 }
 
 table {
-    border: 5px solid rgb(90, 147, 255);
+    border: 5px solid black;
     width: 100%;
     
 }
 
 th {
-    border: 5px solid rgb(90, 147, 255);
+    border: 5px solid black;
     text-align:left;
     padding: 10px;
     font-size: 250%;
 }
 
 td {
-    border: 5px solid rgb(90, 147, 255);
+    /*border: 5px solid rgb(90, 147, 255);*/
+    border: 5px solid black;
     padding: 10px;
     font-size: 200%;
 }
@@ -76,7 +77,7 @@ td {
 #total {
     width: 50%;
     margin: auto;
-    border: 5px solid rgb(90, 147, 255);
+    border: 5px solid black;
     text-align: center;
     font-size: 175%;
     
