@@ -36,10 +36,10 @@ include("bluebox.php");
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
     <body>
-        <div class="jumbotron">
+        <div class="jumbotron" style = "margin-left:auto;margin-right:auto">
             <h1>BlueBox Movies</h1>
-            <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
-            
+            <nav class="navbar navbar-dark bg-primary"><a style = "color:black;" href = "index.php" id = "currentPage">Home Page</a><br/><a 
+            style = "color:black" href = "cart.php">Shopping Cart</a></nav>
         </div>
         <?php
            //same code as above

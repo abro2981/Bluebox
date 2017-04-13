@@ -124,3 +124,9 @@ div{
     margin-left: auto;
     text-align: center;
 }
+nav{
+    background-color:#0F4D8D; 
+}
+a{
+    color: black;
+}
