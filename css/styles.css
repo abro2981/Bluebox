@@ -1,10 +1,13 @@
+html{
+    
+}
 body{
-    background-color: gray;
+    background-color: #0F4D8D;
     margin-left: auto;
     margin-right: auto;
 }
 div{
-    background-color: gray;
+    background-color: #0F4D8D;
     
     margin-left: auto;
     margin-right: auto;
@@ -20,9 +23,10 @@ h1{
 
 
 nav a{
-    float: left;
+    text-decoration: underline;
+    border-style: solid;
     border-color: black;
-    border-right-color: black;
+    color:black;
 }
 
 form{
@@ -30,6 +34,15 @@ form{
 }
 footer{
     text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    color:black;
+}
+footer a{
+    text-align:center;
+    color:black;
+    
 }
 form{
     

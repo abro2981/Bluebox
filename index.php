@@ -40,13 +40,14 @@ function displayCards($title, $movieType, $movieId){
 
     </head>
     <h1>BlueBox Movies</h1>
-    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
+    
+    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/></br><a href = "cart.php">Shopping Cart</a></nav>
     <div>
     <body>
         <form>
             <!-- "searchMovieName is the name of the textBox that a user will
             use to submit to be sql queried -->
-            <input type="text" name="searchMovieName">
+            <input type="text" placeholder = "Search Movie" name="searchMovieName">
             <select name="searchByGenre">
                 <option>Filter A Genre</option>
                 <?=genreOptions()?>

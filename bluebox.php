@@ -1,8 +1,8 @@
 <?php
 session_start();
 //get the database connection
-//include '../../../../inc/dbConnection.php'; //The path Tommy and Jose were using, please comment out the right one when running your project
-include '../../inc/dbConnection.php'; //The path Austin needed
+include '../../../../inc/dbConnection.php'; //The path Tommy and Jose were using, please comment out the right one when running your project
+//include '../../inc/dbConnection.php'; //The path Austin needed
 //create db connection variable //check for global in functions!
 $conn = getDBConnection("bluebox");
 
