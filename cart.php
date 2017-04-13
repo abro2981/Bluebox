@@ -31,7 +31,7 @@ if(isset ($_GET['empty'])){
         </style>
     </head>
         <h1>Your Shopping Cart</h1>
-        <nav><a href = "index.php">Home Page</a><br/><a href = "cart.php" id = "currentPage">Shopping Cart</a></nav>
+        <nav><a href = "index.php">Home Page</a><br/></nav>
     <body>
         
         <br/>

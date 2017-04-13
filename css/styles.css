@@ -5,7 +5,7 @@
 }
 /*div{*/
 /*    background-color: gray;*/
-    
+
 /*    margin-left: auto;*/
 /*    margin-right: auto;*/
 /*    margin: 0 auto;*/
@@ -19,17 +19,27 @@
 
 
 
-nav a{
-    float: left;
-    border-color: black;
-    border-right-color: black;
-}
+/*nav a{*/
+/*    text-decoration: underline;*/
+/*    border-style: solid;*/
+/*    border-color: black;*/
+/*    color:black;*/
+/*}*/
 
 /*form{*/
 /*    text-align:center;*/
 /*}*/
 footer{
     text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    color:black;
+}
+footer a{
+    text-align:center;
+    color:black;
+    
 }
 /*form{*/
     

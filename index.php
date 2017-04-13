@@ -53,7 +53,6 @@ function displayCards($title, $movieType, $movieId){
                         <option>Filter A Genre</option>
                             <?=genreOptions()?>
                     </select>
-            
                     <input type="radio" name="sort" value="price"/><h6 class="color">Filter by price</h6>
                     <input type="radio" name="sort" value="asc" /><h6 class="color">Asc Order</h6>
                     <input type="radio" name="sort" value="desc"/><h6 class="color">Desc Order</h6>
