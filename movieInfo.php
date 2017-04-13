@@ -2,24 +2,30 @@
 session_start();
 
 
-include '../../../../inc/dbConnection.php';
+//include '../../../../inc/dbConnection.php';
+//include '../inc/dbConnection.php';
+include ("bluebox.php");
 
-$dbConn = getDBConnection("bluebox");
+//$dbConn = getDBConnection("bluebox");
 
-$np[':movie'] = $_GET['movieId'];
+//$np[':movie'] = $_GET['movieId'];
 
-function getMovieInfo(){
-    global $dbConn;
-    $np = array();
-    $sql = "SELECT * FROM movies WHERE movieId = :movieId";
+
+// function getMovieInfo(){
+//     global $dbConn;
+//     $np = array();
+//     $sql = "SELECT * FROM movies WHERE movieId = :movieId";
     
-    $statement = $dbConn->prepare($sql);
-    $statement->execute($np);
-    $records = $statement->fetchALL(PDO::FETCH_ASSOC);
-    echo $records;
-    return $records;
-}
+//     $statement = $dbConn->prepare($sql);
+//     $statement->execute($np);
+//     $records = $statement->fetchALL(PDO::FETCH_ASSOC);
+//     echo $records;
+//     return $records;
+// }
 
+$title = getTitle($_GET["movieId"]);
+
+print_r($title); //print the values in the array.
 
 ?>
 
@@ -33,14 +39,14 @@ function getMovieInfo(){
         <h2> Movie Id: <?=$_GET['movieId']?></h2>
         <?php
         
-            $users = getMovieInfo();
+            //$users = getMovieInfo();
             
             echo "Movie Info:";
             
-            foreach ($users as $user) {
+            //foreach ($users as $user) {
                 //show movie info
-                echo "check";
-                echo "<a href='movieInfo.php?movieId=".$user['movieId']."' >" . $user['movieName'] . "</a> ";
+                //echo "check";
+                //echo "<a href='movieInfo.php?movieId=".$user['movieId']."' >" . $user['movieName'] . "</a> ";
                 //echo "<a href='' onclick='window.open(\"userInfo.php?userId=".$user['userId']." \", \"userWindow\", \"width=200, height=200\" )'>" . $user['lastName'] . " </a> ";
                 //echo $user['email'];
                // echo "<a href='userUpdate.php?userId=".$user['userId']."'>[Update]</a> ";
@@ -59,9 +65,9 @@ function getMovieInfo(){
                 // echo "  <input type='hidden' name='userId' value='".$user['userId']."'>\n";                
                 // echo "  <input type='submit' value='Delete'>\n";
                 // echo "</form>\n";
-                echo "<br />";
+                //echo "<br />";
                 
-            }
+            //}
         
 
         ?>

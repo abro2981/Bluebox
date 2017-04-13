@@ -1,12 +1,12 @@
 <?php
 //get the database connection
-include '../../../../inc/dbConnection.php';
+include '../inc/dbConnection.php';
 //create db connection variable //check for global in functions!
 $conn = getDBConnection("bluebox");
 
 function getMovies(){
     global $conn;
-    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices ORDER BY movieName";
+    $sql = "SELECT movieName, mediaType, priceValue, movieId FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
     //SQL statements
     $statement= $conn->prepare($sql);
     $statement->execute();
@@ -30,11 +30,10 @@ function filterByGenre(){
 }
 
 //filter by title
-/***depreciated***/
-function getTitle($title){
+function getTitle($movieId){
     global $conn, $sql, $NameParam;
-    $NameParam[":title"] = '%'.$title.'%';
-    $sql = "SELECT movieName, mediaType, priceValue FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE movieName LIKE :title";
+    $NameParam[":movieId"] = $movieId;
+    $sql = "SELECT * FROM genres NATURAL JOIN movies NATURAL JOIN prices WHERE movieId = :movieId";
     $stmt = $conn -> prepare ($sql);
     $stmt -> execute($NameParam);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -81,7 +80,7 @@ function returnData($title, $genre, $sortingType){
     global $conn;
     $NameParam = array();
     
-    $sql = "SELECT movieName, mediaType, priceValue, genreId, genreName FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
+    $sql = "SELECT movieName, mediaType, priceValue, genreId, genreName, movieId FROM genres NATURAL JOIN movies NATURAL JOIN prices ";
     if(!empty($title)){
         $NameParam[":title"] = '%'.$title.'%';
         $sql .= "WHERE movieName LIKE :title ";
