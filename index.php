@@ -28,7 +28,6 @@ function displayCards($title, $movieType, $movieId){
 
 ?>
 <html>
-    <div>
     <head>
         <title>BlueBox</title>
         
@@ -39,51 +38,51 @@ function displayCards($title, $movieType, $movieId){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     </head>
-    <h1>BlueBox Movies</h1>
-    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
-    <div>
     <body>
-        <form>
-            <!-- "searchMovieName is the name of the textBox that a user will
-            use to submit to be sql queried -->
-            <input type="text" name="searchMovieName">
-            <select name="searchByGenre">
-                <option>Filter A Genre</option>
-                <?=genreOptions()?>
-            </select>
+        <div class="jumbotron">
+            <h1>BlueBox Movies</h1>
+            <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
+        </div>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container">
+                <form class="form-inline waves-effect waves-light">
+                    <!-- "searchMovieName is the name of the textBox that a user will
+                    use to submit to be sql queried -->
+                    <h6 class="color">Search By Title</h6><input class= "form-control" type="text" name="searchMovieName">
+                    <select name="searchByGenre">
+                        <option>Filter A Genre</option>
+                            <?=genreOptions()?>
+                    </select>
             
-            <input type="radio" name="sort" value="price"/>Filter by price
-            <input type="radio" name="sort" value="asc" />Ascending Order
-            <input type="radio" name="sort" value="desc"/>Descending Order
+                    <input type="radio" name="sort" value="price"/><h6 class="color">Filter by price</h6>
+                    <input type="radio" name="sort" value="asc" /><h6 class="color">Asc Order</h6>
+                    <input type="radio" name="sort" value="desc"/><h6 class="color">Desc Order</h6>
             
-            <input type="submit" name="Submit"/>
-        </form>
-        
+                    <input type="submit" name="Submit"/>
+
+                </form>
+            </div>
+        </nav>
+
+          
         <?php
         if(isset($_GET['Submit'])){
             $data = returnData($_GET['searchMovieName'], $_GET['searchByGenre'], $_GET['sort']);  
-            //print_r($data);
-            //echo "<br/>";
-            //print_r($_GET);
-            echo "<body>";
-            echo "<div class='card-deck'>";
+            echo "<div class='card-group'>";
             foreach($data as $foo){
                 displayCards($foo['movieName'], $foo['mediaType'], $foo['movieId']);
             }
             echo "</div>";
-            echo "</body";
         }
         else{
             $data = getMovies();
-            //print_r($data);
-            //echo "<br/>";
-            //echo count($data);
-            echo "<div class='card-deck'>";
+            echo "<div class='card-group'>";
             foreach($data as $foo){
                 displayCards($foo['movieName'], $foo['mediaType'], $foo['movieId']);
+            
             }
             echo "</div>";
-      
+            
         }
         
         ?>

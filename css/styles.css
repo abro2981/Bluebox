@@ -1,17 +1,17 @@
-body{
+.wrapper{
     background-color: gray;
     margin-left: auto;
     margin-right: auto;
 }
-div{
-    background-color: gray;
+/*div{*/
+/*    background-color: gray;*/
     
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0 auto;
-}
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin: 0 auto;*/
+/*}*/
 
-h1{
+.header{
     text-align: center;
     border-style:solid;
     border-bottom-color: black;
@@ -25,17 +25,17 @@ nav a{
     border-right-color: black;
 }
 
-form{
-    text-align:center;
-}
+/*form{*/
+/*    text-align:center;*/
+/*}*/
 footer{
     text-align:center;
 }
-form{
+/*form{*/
     
-    border-style:solid;
-    border-bottom-color: black;
-}
+/*    border-style:solid;*/
+/*    border-bottom-color: black;*/
+/*}*/
 a{
     text-align: center;
     
@@ -67,4 +67,8 @@ td {
     text-align: center;
     font-size: 175%;
     
+}
+
+.color{
+    color: white;
 }

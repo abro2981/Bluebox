@@ -37,8 +37,8 @@ $title = getTitle($_GET["movieId"]);
         </style>
     </head>
     <div>
-    <body>
-        <h1>Movie Info</h1>
+    <body class="wrapper">
+        <h1 class="header">Movie Info</h1>
         
         
         <?php
