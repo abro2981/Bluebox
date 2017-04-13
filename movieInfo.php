@@ -53,8 +53,8 @@ $title = getTitle($_GET["movieId"]);
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
     <div>
-    <body>
-        <h1>Movie Info</h1>
+    <body class="wrapper">
+        <h1 class="header">Movie Info</h1>
         
         <nav><a href = "index.php" id = "currentPage">Home Page</a><br/></br><a href = "cart.php">Shopping Cart</a></nav>
         <?php

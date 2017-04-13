@@ -1,23 +1,19 @@
-head{
-    background-color: #0F4D8D;
-}
-#topPage{
-    background-color: #0F4D8D;
-}
-body{
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-}
-div{
-    background-color: white;
-    
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0 auto;
-}
 
-h1{
+.wrapper{
+    background-color: gray;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*div{*/
+/*    background-color: gray;*/
+
+
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.header{
     text-align: center;
     border-style:solid;
     border-color: #0F4D8D;
@@ -26,22 +22,18 @@ h1{
 
 
 
-nav a{
-    background-color: #0F4D8D;
-    text-decoration: underline;
-    border-style: solid;
-    border-color: #0F4D8D;
-    color:black;
-}
-nav{
-    background-color: #0F4D8D;
-}
 
-form{
-    text-align:center;
-    border-color: #0F4D8D;
-    background-color: #0F4D8D;
-}
+/*nav a{*/
+/*    text-decoration: underline;*/
+/*    border-style: solid;*/
+/*    border-color: black;*/
+/*    color:black;*/
+/*}*/
+
+/*form{*/
+/*    text-align:center;*/
+/*}*/
+
 footer{
     text-align:center;
     margin-left: auto;
@@ -54,11 +46,13 @@ footer a{
     color:black;
     
 }
-form{
+/*form{*/
     
-    border-style:solid;
-    border-bottom-color: #0F4D8D;
-}
+
+/*    border-style:solid;*/
+/*    border-bottom-color: black;*/
+/*}*/
+
 input{
     
     border-style:solid;
@@ -68,6 +62,9 @@ select{
     border-style:solid;
     border-bottom-color: #0F4D8D;
 }
+/*    border-style:solid;*/
+/*    border-bottom-color: black;*/
+/*}*/
 a{
     text-align: center;
     
@@ -100,4 +97,8 @@ td {
     text-align: center;
     font-size: 175%;
     
+}
+
+.color{
+    color: white;
 }
