@@ -28,10 +28,8 @@ function displayCards($title, $movieType, $movieId){
 
 ?>
 <html>
-<<<<<<< HEAD
-    
-=======
->>>>>>> origin/master
+
+
     <head>
         <title>BlueBox</title>
         
@@ -42,14 +40,8 @@ function displayCards($title, $movieType, $movieId){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         
     </head>
-<<<<<<< HEAD
-    <h1>BlueBox Movies</h1>
-    
-    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/></br><a href = "cart.php">Shopping Cart</a></nav>
-    
-    <div>
-=======
->>>>>>> origin/master
+
+
     <body>
         <div class="jumbotron">
             <h1>BlueBox Movies</h1>
