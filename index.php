@@ -17,7 +17,8 @@ function displayCards($title, $movieType){
     echo            "<div class='card-block'>";
     echo                "<h3 class='card-title'>$title</h3>";
     echo               "<p class='card-text'>$movieType</p>";
-    echo               "<a href='movieInfo.php' class='btn btn-primary'>Go somewhere</a>";
+    // movieInfo.php?movieId=".$user['movieId']."
+    echo               "<a href='movieInfo.php?movieId=".$user['movieId'] ."' class='btn btn-primary'>Go somewhere</a>";
     echo            "</div>";
     echo        "</div>";
     //echo    "</div>";

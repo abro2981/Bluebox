@@ -40,7 +40,7 @@ function getMovieInfo(){
             foreach ($users as $user) {
                 //show movie info
                 echo "check";
-                echo "<a href='movieInfo.php?movieId=".$user['movieId']."' target='userInfoFrame'>" . $user['movieName'] . "</a> ";
+                echo "<a href='movieInfo.php?movieId=".$user['movieId']."' >" . $user['movieName'] . "</a> ";
                 //echo "<a href='' onclick='window.open(\"userInfo.php?userId=".$user['userId']." \", \"userWindow\", \"width=200, height=200\" )'>" . $user['lastName'] . " </a> ";
                 //echo $user['email'];
                // echo "<a href='userUpdate.php?userId=".$user['userId']."'>[Update]</a> ";
