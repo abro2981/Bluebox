@@ -18,6 +18,7 @@ function displayCards($title, $movieType, $movieId){
     echo                "<h3 class='card-title'>$title</h3>";
     echo               "<p class='card-text'>$movieType</p>";
     echo               "<a href='movieInfo.php?movieId=".$movieId."' class='btn btn-primary'>More Info</a>";
+    echo               "<a href='addToCart.php?movieId=$movieId' class='btn btn-primary'>Add To Cart</a>";
     echo            "</div>";
     echo        "</div>";
     //echo    "</div>";
@@ -30,6 +31,7 @@ function displayCards($title, $movieType, $movieId){
     <div>
     <head>
         <title>BlueBox</title>
+        
         <style>
             @import url("css/styles.css");
             
@@ -38,6 +40,7 @@ function displayCards($title, $movieType, $movieId){
 
     </head>
     <h1>BlueBox Movies</h1>
+    <nav><a href = "index.php" id = "currentPage">Home Page</a><br/><a href = "cart.php">Shopping Cart</a></nav>
     <div>
     <body>
         <form>
