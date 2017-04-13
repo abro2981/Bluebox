@@ -10,14 +10,14 @@ function genreOptions(){
 }
 
 //display bootstrap cardview
-function displayCards($title, $movieType,$imdbLink){
+function displayCards($title, $movieType){
     //echo"<div class='row'> ";
     //echo    "<div class='col-sm-6'>";
     echo       "<div class='card' style='width: 20rem;'>";
     echo            "<div class='card-block'>";
     echo                "<h3 class='card-title'>$title</h3>";
     echo               "<p class='card-text'>$movieType</p>";
-    echo               "<a href='$imdbLink' class='btn btn-primary'>Go somewhere</a>";
+    echo               "<a href='movieInfo.php' class='btn btn-primary'>Go somewhere</a>";
     echo            "</div>";
     echo        "</div>";
     //echo    "</div>";
@@ -59,8 +59,7 @@ function displayCards($title, $movieType,$imdbLink){
         <h1>All Movie Titles</h1>
         </div>
         <?php
-        $imdb = array();
-        $imdb[] = "Movie1";
+        
         if(isset($_GET['Submit'])){
             $data = returnData($_GET['searchMovieName'], $_GET['searchByGenre'], $_GET['sort']);  
             //print_r($data);
@@ -82,7 +81,7 @@ function displayCards($title, $movieType,$imdbLink){
             echo "<table>";
             $i = 0;
             foreach($data as $foo){
-                displayCards($foo['movieName'], $foo['mediaType'],$imdb[$i]);
+                displayCards($foo['movieName'], $foo['mediaType']);
                 $i++;
             }
             echo "</div>";
