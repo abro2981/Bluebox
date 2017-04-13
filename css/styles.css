@@ -1,13 +1,16 @@
-html{
-    
+head{
+    background-color: #0F4D8D;
+}
+#topPage{
+    background-color: #0F4D8D;
 }
 body{
-    background-color: #0F4D8D;
+    background-color: white;
     margin-left: auto;
     margin-right: auto;
 }
 div{
-    background-color: #0F4D8D;
+    background-color: white;
     
     margin-left: auto;
     margin-right: auto;
@@ -17,20 +20,27 @@ div{
 h1{
     text-align: center;
     border-style:solid;
-    border-bottom-color: black;
+    border-color: #0F4D8D;
+    
 }
 
 
 
 nav a{
+    background-color: #0F4D8D;
     text-decoration: underline;
     border-style: solid;
-    border-color: black;
+    border-color: #0F4D8D;
     color:black;
+}
+nav{
+    background-color: #0F4D8D;
 }
 
 form{
     text-align:center;
+    border-color: #0F4D8D;
+    background-color: #0F4D8D;
 }
 footer{
     text-align:center;
@@ -47,12 +57,16 @@ footer a{
 form{
     
     border-style:solid;
-    border-bottom-color: black;
+    border-bottom-color: #0F4D8D;
 }
 input{
     
     border-style:solid;
-    border-bottom-color: black;
+    border-bottom-color: #0F4D8D;
+}
+select{
+    border-style:solid;
+    border-bottom-color: #0F4D8D;
 }
 a{
     text-align: center;
@@ -60,13 +74,13 @@ a{
 }
 
 table {
-    border: 5px solid black;
+    border:solid #0F4D8D;
     width: 100%;
     
 }
 
 th {
-    border: 5px solid black;
+    border: solid #0F4D8D;
     text-align:left;
     padding: 10px;
     font-size: 250%;
@@ -74,7 +88,7 @@ th {
 
 td {
     /*border: 5px solid rgb(90, 147, 255);*/
-    border: 5px solid black;
+    border: solid #0F4D8D;
     padding: 10px;
     font-size: 200%;
 }
@@ -82,7 +96,7 @@ td {
 #total {
     width: 50%;
     margin: auto;
-    border: 5px solid black;
+    border: solid #0F4D8D;
     text-align: center;
     font-size: 175%;
     
