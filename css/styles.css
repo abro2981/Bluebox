@@ -49,6 +49,11 @@ form{
     border-style:solid;
     border-bottom-color: black;
 }
+input{
+    
+    border-style:solid;
+    border-bottom-color: black;
+}
 a{
     text-align: center;
     
