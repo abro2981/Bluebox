@@ -6,26 +6,25 @@ session_start();
 //include '../inc/dbConnection.php';
 include ("bluebox.php");
 
-//$dbConn = getDBConnection("bluebox");
+$dbConn = getDBConnection("bluebox");
 
 //$np[':movie'] = $_GET['movieId'];
 
 
-// function getMovieInfo(){
-//     global $dbConn;
-//     $np = array();
-//     $sql = "SELECT * FROM movies WHERE movieId = :movieId";
-    
-//     $statement = $dbConn->prepare($sql);
-//     $statement->execute($np);
-//     $records = $statement->fetchALL(PDO::FETCH_ASSOC);
-//     echo $records;
-//     return $records;
-// }
+function getMovieInfo(){
+     global $dbConn;
+     $np = array();
+     $sql = "SELECT * FROM movies,priceId WHERE movieId = :movieId";
+     $np[':movieId'] = $_GET['movieId'];
+     $statement = $dbConn->prepare($sql);
+     $statement->execute($np);
+     $records = $statement->fetchALL(PDO::FETCH_ASSOC);
+     echo $records;
+     return $records;
+ }
 
 $title = getTitle($_GET["movieId"]);
-
-print_r($title); //print the values in the array.
+//print_r($title); //print the values in the array.
 
 ?>
 
@@ -36,17 +35,30 @@ print_r($title); //print the values in the array.
     </head>
     <body>
 
-        <h2> Movie Id: <?=$_GET['movieId']?></h2>
+        <h2> Movie Name</h2>
+        
         <?php
         
             //$users = getMovieInfo();
-            
-            echo "Movie Info:";
+            global $title;
+            //echo "Movie Info:";
+            //echo "Genre";
+            //print_r($title);
+            foreach($title as $foo){
+                echo "Movie Name: ";print_r($foo['movieName']);
+                echo "<br/>";
+                echo "Genre: ";print_r($foo['genreName']);
+                echo "<br/>";
+                echo "Media Type: "; print_r($foo['mediaType']);
+                echo "<br/>";
+                echo "Price: ";print_r($foo['priceValue']);
+            }
+            //echo $title['movieName'];
             
             //foreach ($users as $user) {
                 //show movie info
                 //echo "check";
-                //echo "<a href='movieInfo.php?movieId=".$user['movieId']."' >" . $user['movieName'] . "</a> ";
+                //echo "<a href='movieInfo.php?movieId=".$users['movieId']."' >" . $user['movieName'] . "</a> ";
                 //echo "<a href='' onclick='window.open(\"userInfo.php?userId=".$user['userId']." \", \"userWindow\", \"width=200, height=200\" )'>" . $user['lastName'] . " </a> ";
                 //echo $user['email'];
                // echo "<a href='userUpdate.php?userId=".$user['userId']."'>[Update]</a> ";

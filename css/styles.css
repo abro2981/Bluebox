@@ -1,6 +1,6 @@
 div{
     text-align: center;
-    
+    background-color: gray;
 }
 
 h1{
@@ -15,4 +15,8 @@ nav a{
     float: left;
     border-color: black;
     border-right-color: black;
+}
+
+form{
+    text-align:center;
 }
