@@ -38,7 +38,7 @@ $title = getTitle($_GET["movieId"]);
     </head>
     <div>
     <body>
-
+        <h1>Movie Info</h1>
         
         
         <?php
@@ -48,19 +48,23 @@ $title = getTitle($_GET["movieId"]);
             //echo "Movie Info:";
             //echo "Genre";
             //print_r($title);
+            
             foreach($title as $foo){
-                echo "Movie Name: ";print_r($foo['movieName']);
+                
+                echo "<div>" . "Movie Name: ";print_r($foo['movieName']);
                 echo "<br/>";
                 echo "Genre: ";print_r($foo['genreName']);
                 echo "<br/>";
                 echo "Media Type: "; print_r($foo['mediaType']);
                 echo "<br/>";
-                echo "Price: ";print_r($foo['priceValue']);
+                echo "Price: ";print_r($foo['priceValue']); echo "</div>";
+                
             }
-           
+         
         
 
         ?>
+        
         <br/>
         <footer>
             <a href = "index.php">Return to home</a>

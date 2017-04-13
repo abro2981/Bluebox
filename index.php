@@ -27,6 +27,7 @@ function displayCards($title, $movieType, $movieId){
 
 ?>
 <html>
+    <div>
     <head>
         <title>BlueBox</title>
         <style>
@@ -37,6 +38,7 @@ function displayCards($title, $movieType, $movieId){
 
     </head>
     <h1>BlueBox Movies</h1>
+    <div>
     <body>
         <form>
             <!-- "searchMovieName is the name of the textBox that a user will
@@ -60,11 +62,13 @@ function displayCards($title, $movieType, $movieId){
             //print_r($data);
             //echo "<br/>";
             //print_r($_GET);
+            echo "<body>";
             echo "<div class='card-deck'>";
             foreach($data as $foo){
                 displayCards($foo['movieName'], $foo['mediaType'], $foo['movieId']);
             }
             echo "</div>";
+            echo "</body";
         }
         else{
             $data = getMovies();
@@ -82,4 +86,5 @@ function displayCards($title, $movieType, $movieId){
         ?>
         
     </body>
+    </div>
 </html>
